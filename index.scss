@@ -1,0 +1,104 @@
+body {
+  background-color: #ffffff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px;
+  .logo {
+    width: 150px;
+  }
+
+  .nav-items {
+    > ul {
+      display: flex;
+      padding: 0 20px;
+
+      > li {
+        padding: 10px;
+        margin: 10px;
+        list-style-type: none;
+        cursor: pointer;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.body {
+  height: 600px;
+  border: solid 1px blue;
+  padding: 10px;
+
+  .search {
+    border: solid 1px red;
+    margin-bottom: 10px;
+  }
+
+  .restro-container {
+    border: solid 1px;
+    padding: 10px;
+    height: 590px;
+    .restroCard {
+      position: relative;
+      border: solid 1px #02060c14;
+      background-color: white;
+      border-radius: 16px;
+      min-width: 328px;
+      width: 328px;
+      height: 378px;
+      filter: drop-shadow(rgba(27, 30, 36, 0.08) 0px 0px 7.905px);
+
+      .imageContainer {
+        height: 220px;
+        .restroLogo {
+          width: 100%;
+          border-top-left-radius: 16px;
+          border-top-right-radius: 16px;
+        }
+        .name-rating-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 20px;
+          font-weight: 800;
+          color: #ffffff;
+          background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+          position: absolute;
+          top: 174px;
+          box-sizing: border-box;
+          height: 50px;
+          width: 100%;
+          padding: 0 10px;
+        }
+        .restroRating {
+          font-size: 13px;
+        }
+      }
+      .restroDetailsContainer {
+        border: 1px solid;
+        height: 158px;
+        padding: 8px 12px 12px;
+        box-sizing: border-box;
+
+        .restro-details-wrapper {
+          display: flex;
+          justify-content: space-between;
+          font-weight: 200;
+          font-size: 13px;
+          letter-spacing: -0.33px;
+          color: #02060c99;
+          margin-top: 4px;
+
+          .restroCuisine {
+            overflow: hidden;
+            overflow-wrap: break-word;
+            word-break: break-all;
+          }
+        }
+      }
+    }
+  }
+}

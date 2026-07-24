@@ -1,27 +1,28 @@
 {
-  "name": "QuickBite",
+  "name": "quickbite",
   "version": "1.0.0",
   "description": "Food Ordering System",
   "scripts": {
     "start": "parcel index.html",
-    "build": "pacel build index.html",
+    "build": "parcel build index.html",
     "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/padangalekiran/Food-Ordering-System.git"
-  },
-  "author": "Kiran",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/padangalekiran/Food-Ordering-System/issues"
-  },
-  "homepage": "https://github.com/padangalekiran/Food-Ordering-System#readme",
-  "devDependencies": {
-    "parcel": "^2.16.4"
   },
   "dependencies": {
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
-  }
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.4",
+    "parcel": "^2.16.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/padangalekiran/QuickBite.git"
+  },
+  "author": "Kiran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/padangalekiran/QuickBite/issues"
+  },
+  "homepage": "https://github.com/padangalekiran/QuickBite#readme"
 }
