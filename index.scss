@@ -28,21 +28,25 @@ body {
 }
 
 .body {
-  height: 600px;
   border: solid 1px blue;
   padding: 10px;
 
-  .search {
+  .filter {
     border: solid 1px red;
     margin-bottom: 10px;
+    .filter-btn {
+      margin: 10px;
+      cursor: pointer;
+    }
   }
 
   .restro-container {
     border: solid 1px;
     padding: 10px;
-    height: 590px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
     .restroCard {
-      position: relative;
       border: solid 1px #02060c14;
       background-color: white;
       border-radius: 16px;
@@ -50,9 +54,11 @@ body {
       width: 328px;
       height: 378px;
       filter: drop-shadow(rgba(27, 30, 36, 0.08) 0px 0px 7.905px);
+      cursor: pointer;
 
       .imageContainer {
-        height: 220px;
+        height: 190px;
+        position: relative;
         .restroLogo {
           width: 100%;
           border-top-left-radius: 16px;
@@ -67,7 +73,7 @@ body {
           color: #ffffff;
           background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
           position: absolute;
-          top: 174px;
+          bottom: 0;
           box-sizing: border-box;
           height: 50px;
           width: 100%;
@@ -77,9 +83,9 @@ body {
           font-size: 13px;
         }
       }
+
       .restroDetailsContainer {
-        border: 1px solid;
-        height: 158px;
+        height: 186px;
         padding: 8px 12px 12px;
         box-sizing: border-box;
 
@@ -101,4 +107,11 @@ body {
       }
     }
   }
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  border: solid 1px;
 }
