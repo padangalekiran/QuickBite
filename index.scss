@@ -109,6 +109,23 @@ body {
   }
 }
 
+.shimmer-container {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  .shimmer-card {
+    border: solid 1px #02060c14;
+    background-color: #e3e3e3;
+    border-radius: 16px;
+    min-width: 328px;
+    width: 328px;
+    height: 378px;
+    filter: drop-shadow(rgba(27, 30, 36, 0.08) 0px 0px 7.905px);
+    cursor: pointer;
+  }
+}
+
 .footer {
   display: flex;
   width: 100%;
