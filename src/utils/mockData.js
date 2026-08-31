@@ -1,4 +1,4 @@
-const restroList = [
+export const restroList = [
   {
     info: {
       id: "568722",
@@ -1569,5 +1569,172 @@ const restroList = [
     }
   }
 ];
+
+export const MENU_MOCK_DATA = {
+  statusCode: 0,
+  data: {
+    cards: [
+      {
+        card: {
+          card: {
+            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+            info: {
+              id: "203925",
+              name: "QuickBite Kitchen",
+              cloudinaryImageId: "sample-restaurant-image",
+              locality: "Baner",
+              areaName: "Baner",
+              city: "Pune",
+              cuisines: ["North Indian", "Chinese", "Fast Food"],
+              avgRating: 4.3,
+              costForTwo: "₹400 for two",
+              deliveryTime: 32
+            }
+          }
+        }
+      },
+      {
+        groupedCard: {
+          cardGroupMap: {
+            REGULAR: {
+              cards: [
+                {
+                  card: {
+                    card: {
+                      "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                      title: "Recommended",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "item001",
+                              name: "Paneer Butter Masala",
+                              category: "Recommended",
+                              price: 24000,
+                              defaultPrice: 24000,
+                              isVeg: 1,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.4",
+                                  ratingCountV2: "1.2K"
+                                }
+                              },
+                              description: "Cottage cheese cubes simmered in a rich tomato and butter gravy.",
+                              imageId: "sample-item-1"
+                            }
+                          }
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "item002",
+                              name: "Chicken Biryani",
+                              category: "Recommended",
+                              price: 29900,
+                              defaultPrice: 29900,
+                              isVeg: 0,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.6",
+                                  ratingCountV2: "3.4K"
+                                }
+                              },
+                              description: "Fragrant basmati rice layered with spiced chicken, slow-cooked.",
+                              imageId: "sample-item-2"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  card: {
+                    card: {
+                      "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                      title: "Burgers",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "item003",
+                              name: "Classic Veg Burger",
+                              category: "Burgers",
+                              price: 12000,
+                              defaultPrice: 12000,
+                              isVeg: 1,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.1",
+                                  ratingCountV2: "540"
+                                }
+                              },
+                              description: "Crispy veg patty, lettuce, and house sauce in a soft bun.",
+                              imageId: "sample-item-3"
+                            }
+                          }
+                        },
+                        {
+                          card: {
+                            info: {
+                              id: "item004",
+                              name: "Spicy Chicken Burger",
+                              category: "Burgers",
+                              price: 15900,
+                              defaultPrice: 15900,
+                              isVeg: 0,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.3",
+                                  ratingCountV2: "890"
+                                }
+                              },
+                              description: "Grilled chicken patty with a fiery mayo and pickled onions.",
+                              imageId: "sample-item-4"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  card: {
+                    card: {
+                      "@type": "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+                      title: "Beverages",
+                      itemCards: [
+                        {
+                          card: {
+                            info: {
+                              id: "item005",
+                              name: "Coca-Cola (500ml)",
+                              category: "Beverages",
+                              price: 6000,
+                              defaultPrice: 6000,
+                              isVeg: 1,
+                              ratings: {
+                                aggregatedRating: {
+                                  rating: "4.5",
+                                  ratingCountV2: "2.1K"
+                                }
+                              },
+                              description: "Chilled 500ml Coca-Cola bottle.",
+                              imageId: "sample-item-5"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+};
 
 export default restroList;

@@ -1,5 +1,4 @@
 import RestroCard from "./RestroCard";
-import restroList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
@@ -23,7 +22,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
+      <div className="flex-center filter">
         <div className="search">
           <input
             type="text"

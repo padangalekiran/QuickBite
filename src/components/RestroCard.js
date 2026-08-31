@@ -7,7 +7,7 @@ const RestroCard = (props) => {
     <div className="restroCard">
       <div className="imageContainer">
         <img className="restroLogo" alt="restro-image" src={CDN_URL + cloudinaryImageId}></img>
-        <div className="name-rating-container">
+        <div className="flex-center name-rating-container">
           <span className="restroName">{name}</span>
           <span className="restroRating">⭐ {avgRating}</span>
         </div>
