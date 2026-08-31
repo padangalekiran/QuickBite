@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import { CDN_URL } from "../utils/constants";
+import { CDN_URL, MENU_API } from "../utils/constants";
+import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
+  const { resId } = useParams();
 
   useEffect(() => {
     console.log("useEffect called in resturant menu");
@@ -11,24 +13,16 @@ const RestaurantMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const data = await fetch(
-      "/api/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.6653014&lng=73.7970946&restaurantId=203925&catalog_qa=undefined&submitAction=ENTER"
-    );
+    const data = await fetch(MENU_API + resId);
     const json = await data.json();
 
     setResInfo(json);
   };
 
-  const { name, cuisines, cloudinaryImageId, avgRating, totalRatingsString, costForTwoMessage, timingsInfo, nearestOutletNudge } =
+  const { name, cuisines, cloudinaryImageId, avgRating, totalRatingsString, costForTwoMessage, timingsInfo, areaName, sla } =
     resInfo?.data?.cards[2]?.card?.card?.info || {};
 
   //   const categories = resInfo?.data?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
-
-  function getDeliveryRange(minutes) {
-    const lower = Math.floor(minutes / 5) * 5;
-    const upper = lower + 5;
-    return `${lower}-${upper}`;
-  }
 
   return resInfo === null ? (
     <Shimmer />
@@ -71,9 +65,9 @@ const RestaurantMenu = () => {
           <div className="location">
             <div className="flex-center outlet_wrapper">
               <div className="subText title">Outlet</div>
-              <div className="subText outlet">{nearestOutletNudge?.nearestOutletInfo?.siblingOutlet?.areaName}</div>
+              <div className="subText outlet">{areaName}</div>
             </div>
-            <div className="subText deliveryTime">{getDeliveryRange(nearestOutletNudge?.nearestOutletInfo?.siblingOutlet?.sla?.deliveryTime)}</div>
+            <div className="subText deliveryTime">{sla?.slaString}</div>
           </div>
         </div>
       </div>
