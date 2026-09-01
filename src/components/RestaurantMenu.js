@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import { CDN_URL, MENU_API } from "../utils/constants";
+import { CDN_URL, DISH_URL, MENU_API } from "../utils/constants";
+import { VegIcon, NonVegIcon } from "../utils/Icons";
 import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
@@ -19,15 +20,16 @@ const RestaurantMenu = () => {
     setResInfo(json);
   };
 
+  if (resInfo === null) return <Shimmer />;
+
   const { name, cuisines, cloudinaryImageId, avgRating, totalRatingsString, costForTwoMessage, timingsInfo, areaName, sla } =
     resInfo?.data?.cards[2]?.card?.card?.info || {};
 
-  //   const categories = resInfo?.data?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
+  const category = resInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || [];
+  console.log("category: ", category);
 
-  return resInfo === null ? (
-    <Shimmer />
-  ) : (
-    <div className="menu">
+  return (
+    <div className="menuPage">
       <div style={{ marginLeft: 16 + "px" }}>
         <h1>{name}</h1>
       </div>
@@ -71,19 +73,49 @@ const RestaurantMenu = () => {
           </div>
         </div>
       </div>
-
-      {/* {categories.map((category) => (
-        <div key={category?.card?.card?.title}>
-          <h2>{category?.card?.card?.title}</h2>
-          <ul>
-            {category?.card?.card?.itemCards?.map((item) => (
-              <li key={item.card.info.id}>
-                {item.card.info.name} - ₹{item.card.info.price / 100}
-              </li>
-            ))}
-          </ul>
+      <div className="menuWrapper">
+        <h2 className="categoryTitle">
+          {category.title}({category.itemCards.length})
+        </h2>
+        <div className="menuList">
+          {category?.itemCards?.map((item) => (
+            <div className="dish-item" key={item.card.info.id}>
+              <div className="dish">
+                <div className="dish-details">
+                  <div className="flex-center veg-nonveg-icon">{item.card.info.isVeg ? <VegIcon /> : <NonVegIcon />}</div>
+                  <div className="dish-name">{item.card.info.name}</div>
+                  <div className="flex-center dish-price">₹ {(item.card.info.price || item.card.info.defaultPrice) / 100}</div>
+                  <div className="dish-rating">
+                    ★ {item.card.info.ratings.aggregatedRating.rating} ({item.card.info.ratings.aggregatedRating.ratingCountV2})
+                  </div>
+                  <div className="textStyle dish-description">{item.card.info.description}</div>
+                </div>
+                <div className="dish-image-wrapper">
+                  <div className="dish-image">
+                    <img src={DISH_URL + item.card.info.imageId}></img>
+                  </div>
+                  <div className="flex-center button-container">
+                    <div className="flex-center add-btn">Add</div>
+                    <div className="customisable">Customisable</div>
+                  </div>
+                </div>
+              </div>
+              <div className="horizontalSeparator"></div>
+            </div>
+          ))}
         </div>
-      ))} */}
+      </div>
+
+      {/* 
+       // <h2>{item?.card?.card?.title}</h2>
+          // <ul>
+          //   {category?.card?.card?.itemCards?.map((item) => (
+          //     <li key={item.card.info.id}>
+          //       {item.card.info.name} - ₹{item.card.info.price / 100}
+          //     </li>
+          //   ))}
+          // </ul>
+          //  */}
     </div>
   );
 };

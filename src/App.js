@@ -11,9 +11,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="app" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Header />
-      <Outlet />
+      <Outlet style={{ flex: 1 }} />
       <Footer />
     </div>
   );
