@@ -8,6 +8,8 @@ const Body = () => {
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  // no dependency array => useEffect is called every time
+  // empty dependency array => [] => useEffect us called on initial render(just once)
   useEffect(() => {
     fetchData();
   }, []);
@@ -15,8 +17,9 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch("/api/dapi/restaurants/list/v5?lat=18.6208&lng=73.8023&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
-    setRestaurantList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurantList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    const value = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    setRestaurantList(value);
+    setFilteredRestaurantList(value);
   };
 
   return restuarantList.length === 0 ? (

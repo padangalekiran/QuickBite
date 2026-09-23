@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
-
   return (
     <div className="flex-center header">
       <div className="logoContainer">
@@ -21,7 +20,9 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact us</Link>
           </li>
-          <li>Cart</li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
           <button
             className="login-btn"
             onClick={() => {
